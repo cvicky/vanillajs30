@@ -12,6 +12,7 @@
         <div class="hand hour-hand"></div>
         <div class="hand min-hand"></div>
         <div class="hand second-hand"></div>
+        <div class="hand second-hand2"></div>
       </div>
     </div>
 
@@ -68,22 +69,20 @@
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
 
-    .hand.hour-hand {
+    .hour-hand {
       width: 25%;
-      height:6px;
-      background:black;
-      position: 20px;
-      top:50%;
-      transform-origin: 100%;
-      transform: rotate(90deg);
-      transition: all 0.05s;
-      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+      left: 50px;
+    }
+
+    .min-hand {
+      width : 40%;
     }
 
   </style>
 
   <script>
   const secondHand = document.querySelector('.second-hand');
+  const secondHand2 = document.querySelector('.second-hand');
   const minHand = document.querySelector('.min-hand');
   const hourHand = document.querySelector('.hour-hand');
 
@@ -92,6 +91,8 @@
     const seconds = now.getSeconds();
     const secondsDegrees = ((seconds / 60) * 360) + 90;
     secondHand.style.transform = `rotate(${secondsDegrees}deg`;
+
+    secondHand2.style.transform = `rotate(${secondsDegrees}deg`;
 
     const mins = now.getMinutes();
     const minsDegrees = ((mins / 60) * 360) + 90;
